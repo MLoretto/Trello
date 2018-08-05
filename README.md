@@ -2,6 +2,9 @@
 
 En este reto, se solicita replicar el tablero de Trello siguiendo el estilo original lo más parecido posible.
 
+Se puede acceder a la interfaz desde el siguiente link.
+(https://mloretto.github.io/Trello/.)
+
 Clon de Trello
 
 * VERSIÓN 0.0.1
