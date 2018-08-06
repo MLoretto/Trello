@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Days+One" rel="stylesheet">
-    <link rel="icon" href="../../img/favicon.png" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="web-fonts-with-css/css/fontawesome-all.min.css">
 
 </head>
@@ -51,24 +50,13 @@
     </nav>
     <div class="container-fluid p-1 ml-3">
         <div id="listContent" class="row">
-           <!--
-            <div class="col-md-3 p-1">
-                <div id="formAgregar" class="card space card-color" >
-                    <div class="card-body card-body-form">
-                        <h4>Este es el titulo</h4>
-                        <div id="inputText" class="form-group space">
-                            <input type="text" class="form-control  inputTask" id="txtAgregar" placeholder="Añadir una tarea...">
-                        </div>                        
-                    </div>
-                </div>
-            </div>
-            v-->
+
             <div class="col-md-3  p-1">
                 <div id="inputText" class="form-group space">
                     <input type="text" onclick="showFormAddList()" class="form-control  inputList" id="txtAgregar" placeholder="Añadir una lista...">
                 </div>
                 
-                <div id="formAgregar" class="card space card-color" style="width: 18rem; display:none">
+                <div id="formAgregar" class="card space card-color" style="display:none">
                     <div class="card-body card-body-form">
                         <input id="listName" type="text" class="form-control form-control-sm mb-2" placeholder="Añadir una lista...">
                         <a href="#" class="btn btn-success btn-sm ml-0" onclick="addListButton()">Agregar</a>
