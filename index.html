@@ -50,16 +50,30 @@
         <div class="pr-2"><span class="headerTextNormal header-separador pl-2"><i class="fas fa-lock m-1"></i>privado</span></div>
     </nav>
     <div class="container-fluid p-1 ml-3">
-        <div class="row">
-            <div id="inputText" class="form-group space">
-                <input type="text" onclick="showFormAddList()" class="form-control  inputList" id="txtAgregar" placeholder="Añadir una lista...">
+        <div id="listContent" class="row">
+           <!--
+            <div class="col-md-3 p-1">
+                <div id="formAgregar" class="card space card-color" >
+                    <div class="card-body card-body-form">
+                        <h4>Este es el titulo</h4>
+                        <div id="inputText" class="form-group space">
+                            <input type="text" class="form-control  inputTask" id="txtAgregar" placeholder="Añadir una tarea...">
+                        </div>                        
+                    </div>
+                </div>
             </div>
-         
-            <div id="formAgregar" class="card space card-color" style="width: 18rem; display:none">
-                <div class="card-body card-body-form">
-                    <input id="listName" type="text" class="form-control form-control-sm mb-2" placeholder="Añadir una lista...">
-                    <a href="#" class="btn btn-success btn-sm ml-0" onclick="hideFormAddList()">Agregar</a>
-                    <a href="#" class="btn close  ml-0" onclick="hideFormAddList()"> <span aria-hidden="true">&times;</span></a>
+            v-->
+            <div class="col-md-3  p-1">
+                <div id="inputText" class="form-group space">
+                    <input type="text" onclick="showFormAddList()" class="form-control  inputList" id="txtAgregar" placeholder="Añadir una lista...">
+                </div>
+                
+                <div id="formAgregar" class="card space card-color" style="width: 18rem; display:none">
+                    <div class="card-body card-body-form">
+                        <input id="listName" type="text" class="form-control form-control-sm mb-2" placeholder="Añadir una lista...">
+                        <a href="#" class="btn btn-success btn-sm ml-0" onclick="addListButton()">Agregar</a>
+                        <a href="#" class="btn close  ml-0" onclick="hideFormAddList()"> <span aria-hidden="true">&times;</span></a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -94,6 +94,13 @@ footer {
     border: none !important;
     color: white !important;
 }
+
+.inputTask{
+    background-color: hsla(0,0%,40%,.3) !important;
+    border: none !important;
+    color: white !important;
+}
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white !important;
     opacity: 1 !important; /* Firefox */
