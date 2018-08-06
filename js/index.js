@@ -17,10 +17,9 @@ function hideFormAddList(){
 function addListButton(){
     const titleName = document.getElementById('listName').value;
     console.log(titleName);
-
     addList(titleName);
     hideFormAddList();
-
+    document.getElementById('listName').value = '';
 }
 
 
@@ -77,12 +76,19 @@ function addList(titleText){
     const btnAddTask =  document.createElement('a');
     btnAddTask.classList.add('btn','btn-success','btn-sm','ml-0');
     btnAddTask.href = '#';
-    
     btnAddTask.innerText = 'Agregar';
     
-    const btnClouseTask =  document.createElement('a');
-    btnClouseTask.classList.add('btn','close','ml-0');
-    btnClouseTask.href = '#';
+    btnAddTask.addEventListener("click", 
+        function inputTaskClick(e) {
+            console.log(e.target);
+            addTaskButton(e.target);
+    });
+
+
+
+    const btnCloseTask =  document.createElement('a');
+    btnCloseTask.classList.add('btn','close','ml-0');
+    btnCloseTask.href = '#';
 
     const spanClose = document.createElement('span');
     var att = document.createAttribute("aria-hidden");       
@@ -90,11 +96,18 @@ function addList(titleText){
     spanClose.setAttributeNode(att); 
     spanClose.innerHTML = '&times;';
 
-    btnClouseTask.appendChild(spanClose);
+    btnCloseTask.appendChild(spanClose);
+
+    btnCloseTask.addEventListener("click", 
+        function inputTaskClick(e) {
+            console.log(e.target);
+            hideFormAddTask(e.target);
+    });
+
 
     formBodyTask.appendChild(inputNameTask);
     formBodyTask.appendChild(btnAddTask);
-    formBodyTask.appendChild(btnClouseTask);
+    formBodyTask.appendChild(btnCloseTask);
     formTask.appendChild(formBodyTask);
 
 
@@ -119,22 +132,41 @@ function showFromAddTask(obj){
     console.log('click show task form');
     console.log(obj);
     const formAdd = obj.parentElement.parentElement.children[3];
-   
+    
     formAdd.style.display = 'block';
     obj.parentElement.style.display = 'none';
+    formAdd.firstChild.firstChild.focus();
 
 }
 
 function addTaskButton(obj){
     const formAdd = obj.parentElement.parentElement;
     const inputAdd = obj.parentElement.parentElement.parentElement.children[2];
+    let tituloTarea = formAdd.firstChild.firstChild.value;
+    const content = formAdd.parentElement.children[1];                 
 
-    hideFormAddTask(obj);
-}
+    const divRowTask = document.createElement('div');
+    divRowTask.classList.add('row');
 
-function hideFormAddTask(obj){
-    const formAdd = obj.parentElement.parentElement;
-    const inputAdd = obj.parentElement.parentElement.parentElement.children[2];
+    const TitleTask = document.createElement('h6');
+    TitleTask.innerText = tituloTarea;
+    formAdd.firstChild.firstChild.value = '';
+    divRowTask.appendChild(TitleTask);
+    content.appendChild(divRowTask);
+
     formAdd.style.display = 'none';
     inputAdd.style.display = 'block';
 }
+
+function hideFormAddTask(obj){
+
+    const formAdd = obj.parentElement.parentElement.parentElement.parentElement.children[3];
+    const inputAdd = obj.parentElement.parentElement.parentElement.parentElement.children[2];
+    console.log(obj);
+    console.log(inputAdd);
+    
+    formAdd.style.display = 'none';
+    inputAdd.style.display = 'block';
+}
+
+
