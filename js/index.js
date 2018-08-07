@@ -22,7 +22,6 @@ function addListButton(){
     document.getElementById('listName').value = '';
 }
 
-
 function addList(titleText){
     const listCol = document.createElement('div');
     listCol.classList.add('col-md-3', 'p-1');
@@ -39,7 +38,7 @@ function addList(titleText){
 
     title.appendChild(titleStrong);
 
-    //proximo contenedor de tareas
+    //Próximo contenedor de tareas
     const divTaskContent = document.createElement('div');
     divTaskContent.classList.add('container-fluid');
 
@@ -76,15 +75,13 @@ function addList(titleText){
     const btnAddTask =  document.createElement('a');
     btnAddTask.classList.add('btn','btn-success','btn-sm','ml-0');
     btnAddTask.href = '#';
-    btnAddTask.innerText = 'Agregar';
+    btnAddTask.innerText = 'Añadir Tarjeta';
     
     btnAddTask.addEventListener("click", 
         function inputTaskClick(e) {
             console.log(e.target);
             addTaskButton(e.target);
     });
-
-
 
     const btnCloseTask =  document.createElement('a');
     btnCloseTask.classList.add('btn','close','ml-0');
@@ -109,8 +106,6 @@ function addList(titleText){
     formBodyTask.appendChild(btnAddTask);
     formBodyTask.appendChild(btnCloseTask);
     formTask.appendChild(formBodyTask);
-
-
 
     cardBody.appendChild(title);
     cardBody.appendChild(divTaskContent);
@@ -146,12 +141,32 @@ function addTaskButton(obj){
     const content = formAdd.parentElement.children[1];                 
 
     const divRowTask = document.createElement('div');
-    divRowTask.classList.add('row');
+    divRowTask.classList.add('row','d-flex','justify-content-between', 'align-items-center');
 
     const TitleTask = document.createElement('h6');
     TitleTask.innerText = tituloTarea;
     formAdd.firstChild.firstChild.value = '';
+
+    
+    const btnDeleteTask = document.createElement('a');
+    btnDeleteTask.classList.add('btn', 'close', 'ml-0');
+    btnDeleteTask.href = '#';
+   
+    const spanClose = document.createElement('span');
+    var att = document.createAttribute("aria-hidden");
+    att.value = "true";
+    spanClose.setAttributeNode(att);
+    spanClose.innerHTML = '&times;';
+
+    btnDeleteTask.appendChild(spanClose);
+    btnDeleteTask.addEventListener("click",
+        function (e) {
+            deleteTask(e.target);
+        });
     divRowTask.appendChild(TitleTask);
+    
+    divRowTask.appendChild(btnDeleteTask);
+
     content.appendChild(divRowTask);
 
     formAdd.style.display = 'none';
@@ -169,4 +184,12 @@ function hideFormAddTask(obj){
     inputAdd.style.display = 'block';
 }
 
+function deleteTask(obj) {
 
+    var opcion = confirm("¿Esta seguro que desea eliminar la tarea?");
+    if (opcion == true) {
+        const content = obj.parentElement.parentElement.parentElement;
+        const rowTask = obj.parentElement.parentElement;
+        content.removeChild(rowTask);
+    } 
+}
