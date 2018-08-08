@@ -24,7 +24,7 @@ function addListButton(){
 
 function addList(titleText){
     const listCol = document.createElement('div');
-    listCol.classList.add('col-md-3', 'p-1');
+    listCol.classList.add('col-xs-12','col-sm-6','col-md-3');
 
     const formList = document.createElement('div');
     formList.classList.add('card', 'space', 'card-color');
@@ -38,7 +38,6 @@ function addList(titleText){
 
     title.appendChild(titleStrong);
 
-    //Próximo contenedor de tareas
     const divTaskContent = document.createElement('div');
     divTaskContent.classList.add('container-fluid');
 
@@ -57,7 +56,6 @@ function addList(titleText){
             showFromAddTask(e.target);
     });
 
-
     divInputTask.appendChild(inputTask);
 
     const formTask = document.createElement('div');
@@ -67,10 +65,22 @@ function addList(titleText){
     const formBodyTask = document.createElement('div');
     formBodyTask.classList.add('card','card-body-form');
 
+    const containerFormTask = document.createElement('div');
+    containerFormTask.classList.add('container');
+
+    const rowFormInputTask = document.createElement('div');
+    rowFormInputTask.classList.add('row');
+
     const inputNameTask = document.createElement('input');
     inputNameTask.type = 'text';
     inputNameTask.classList.add('form-control','form-control-sm','mb-2','inputTask');
     inputNameTask.placeholder = 'Añadir una tarea...';
+
+    const rowFormButtonTask = document.createElement('div');
+    rowFormButtonTask.classList.add('row');
+
+    const colFormButtonTask = document.createElement('div');
+    colFormButtonTask.classList.add('col-xs-12','col-sm-12','col-md-12');
 
     const btnAddTask =  document.createElement('a');
     btnAddTask.classList.add('btn','btn-success','btn-sm','ml-0');
@@ -101,10 +111,18 @@ function addList(titleText){
             hideFormAddTask(e.target);
     });
 
+    rowFormInputTask.appendChild(inputNameTask)
 
-    formBodyTask.appendChild(inputNameTask);
-    formBodyTask.appendChild(btnAddTask);
-    formBodyTask.appendChild(btnCloseTask);
+    colFormButtonTask.appendChild(btnAddTask);
+    colFormButtonTask.appendChild(btnCloseTask);
+
+    rowFormButtonTask.appendChild(colFormButtonTask);
+
+    containerFormTask.appendChild(rowFormInputTask);
+    containerFormTask.appendChild(rowFormButtonTask);
+
+    formBodyTask.appendChild(containerFormTask);
+
     formTask.appendChild(formBodyTask);
 
     cardBody.appendChild(title);
@@ -112,15 +130,9 @@ function addList(titleText){
     cardBody.appendChild(divInputTask);
 
     cardBody.appendChild(formTask);
-
-
     formList.appendChild(cardBody);
-
     listCol.appendChild(formList);
-
     listContent.insertBefore(listCol, listContent.childNodes[0]);
-
-
 }
 
 function showFromAddTask(obj){
@@ -130,14 +142,16 @@ function showFromAddTask(obj){
     
     formAdd.style.display = 'block';
     obj.parentElement.style.display = 'none';
-    formAdd.firstChild.firstChild.focus();
+    formAdd.firstChild.firstChild.firstChild.children[0].value = '';
+    formAdd.firstChild.firstChild.firstChild.children[0].focus();
 
 }
 
 function addTaskButton(obj){
-    const formAdd = obj.parentElement.parentElement;
-    const inputAdd = obj.parentElement.parentElement.parentElement.children[2];
-    let tituloTarea = formAdd.firstChild.firstChild.value;
+    const formAdd = obj.parentElement.parentElement.parentElement.parentElement.parentElement;
+    const inputAdd = formAdd.firstChild.firstChild.firstChild.firstChild;
+    const inputClick = inputAdd.parentElement.parentElement.parentElement.parentElement.parentElement.children[2]
+    let tituloTarea = inputAdd.value;
     const content = formAdd.parentElement.children[1];                 
 
     const divRowTask = document.createElement('div');
@@ -170,13 +184,12 @@ function addTaskButton(obj){
     content.appendChild(divRowTask);
 
     formAdd.style.display = 'none';
-    inputAdd.style.display = 'block';
+    inputClick.style.display = 'block';
 }
 
 function hideFormAddTask(obj){
-
-    const formAdd = obj.parentElement.parentElement.parentElement.parentElement.children[3];
-    const inputAdd = obj.parentElement.parentElement.parentElement.parentElement.children[2];
+    const formAdd = obj.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+    const inputAdd = obj.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[2];
     console.log(obj);
     console.log(inputAdd);
     
@@ -185,7 +198,6 @@ function hideFormAddTask(obj){
 }
 
 function deleteTask(obj) {
-
     var opcion = confirm("¿Esta seguro que desea eliminar la tarea?");
     if (opcion == true) {
         const content = obj.parentElement.parentElement.parentElement;
