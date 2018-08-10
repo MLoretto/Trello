@@ -82,6 +82,7 @@ footer {
 
 .inputList{
     background-color: hsla(0,0%,100%,.3) !important;
+   /* width: 90% !important;*/ 
     border: none !important;
     color: white !important;
 }
@@ -113,5 +114,9 @@ footer {
 
  .imgLogo{
     width: 80px;
+    height: 30px;
+ }
+ .imgUser{
+    width: 30px;
     height: 30px;
  }

@@ -24,7 +24,7 @@ function addListButton(){
 
 function addList(titleText){
     const listCol = document.createElement('div');
-    listCol.classList.add('col-xs-12','col-sm-6','col-md-3');
+    listCol.classList.add('col-xs-12','col-sm-6','col-md-3','pt-1');
 
     const formList = document.createElement('div');
     formList.classList.add('card', 'space', 'card-color');
@@ -59,7 +59,7 @@ function addList(titleText){
     divInputTask.appendChild(inputTask);
 
     const formTask = document.createElement('div');
-    formTask.classList.add('card','space','card-color');
+    formTask.classList.add('card','space','card-color','p-0');
     formTask.style.display = 'none';
 
     const formBodyTask = document.createElement('div');
@@ -80,7 +80,7 @@ function addList(titleText){
     rowFormButtonTask.classList.add('row');
 
     const colFormButtonTask = document.createElement('div');
-    colFormButtonTask.classList.add('col-xs-12','col-sm-12','col-md-12');
+    colFormButtonTask.classList.add('col-xs-12','col-sm-12','col-md-12','p-0');
 
     const btnAddTask =  document.createElement('a');
     btnAddTask.classList.add('btn','btn-success','btn-sm','ml-0');
