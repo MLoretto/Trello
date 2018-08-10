@@ -48,7 +48,7 @@ function addList(titleText){
     const inputTask = document.createElement('input');
     inputTask.type = 'text'
     inputTask.classList.add('form-control', 'inputTask');
-    inputTask.placeholder = 'Añadir una tarea...';
+    inputTask.placeholder = '+ Añada otra tarjeta...';
     
     inputTask.addEventListener("click", 
         function inputTaskClick(e) {
@@ -200,7 +200,7 @@ function hideFormAddTask(obj){
 }
 
 function deleteTask(obj) {
-    var opcion = confirm("¿Esta seguro que desea eliminar la tarea?");
+    var opcion = confirm("¿Esta seguro que desea eliminar la tarjeta?");
     if (opcion == true) {
         const content = obj.parentElement.parentElement.parentElement;
         const rowTask = obj.parentElement.parentElement;
