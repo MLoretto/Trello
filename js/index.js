@@ -74,7 +74,7 @@ function addList(titleText){
     const inputNameTask = document.createElement('input');
     inputNameTask.type = 'text';
     inputNameTask.classList.add('form-control','form-control-sm','mb-2','inputTask');
-    inputNameTask.placeholder = 'Añadir una tarea...';
+    inputNameTask.placeholder = 'Añada una tarjeta...';
 
     const rowFormButtonTask = document.createElement('div');
     rowFormButtonTask.classList.add('row');
