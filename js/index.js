@@ -132,7 +132,7 @@ function addList(titleText){
     cardBody.appendChild(formTask);
     formList.appendChild(cardBody);
     listCol.appendChild(formList);
-    listContent.insertBefore(listCol, listContent.childNodes[0]);
+    listContent.insertBefore(listCol, listContent.childNodes[listContent.childNodes.length-2]);
 }
 
 function showFromAddTask(obj){
@@ -157,8 +157,10 @@ function addTaskButton(obj){
     const divRowTask = document.createElement('div');
     divRowTask.classList.add('row','d-flex','justify-content-between', 'align-items-center','backTask');
 
-    const TitleTask = document.createElement('h6');
-    TitleTask.innerText = tituloTarea;
+    const titleTask = document.createElement('h6');
+
+    titleTask.innerText = tituloTarea;
+    titleTask.classList.add('pl-2');
     formAdd.firstChild.firstChild.value = '';
 
     
@@ -177,7 +179,7 @@ function addTaskButton(obj){
         function (e) {
             deleteTask(e.target);
         });
-    divRowTask.appendChild(TitleTask);
+    divRowTask.appendChild(titleTask);
     
     divRowTask.appendChild(btnDeleteTask);
 
