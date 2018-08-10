@@ -155,7 +155,7 @@ function addTaskButton(obj){
     const content = formAdd.parentElement.children[1];                 
 
     const divRowTask = document.createElement('div');
-    divRowTask.classList.add('row','d-flex','justify-content-between', 'align-items-center');
+    divRowTask.classList.add('row','d-flex','justify-content-between', 'align-items-center','backTask');
 
     const TitleTask = document.createElement('h6');
     TitleTask.innerText = tituloTarea;

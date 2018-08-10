@@ -120,3 +120,15 @@ footer {
     width: 30px;
     height: 30px;
  }
+
+ .backTask:hover {
+    background-color: lightgray !important;
+    border-radius: 3px;
+    margin-bottom: 4px !important;
+}
+
+.backTask{
+    background-color: white !important;
+    border-radius: 3px;
+    margin-bottom: 4px !important;
+}
